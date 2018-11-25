@@ -1,0 +1,23 @@
+RewriteEngine On
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    IndexIgnore */*
+    #Turn on the RewriteEngine
+    RewriteEngine On
+    #Rules
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule . index.php%{REQUEST_URI} [L]
+</IfModule>
+
+<IfModule mod_headers.c>    
+    Header set Access-Control-Allow-Origin *
+</IfModule>
+
+SetEnvIfNoCase User-Agent "^Wget" bad_bot
+
+<Limit GET POST>
+   Order Allow,Deny
+   Allow from all
+   Deny from env=bad_bot
+</Limit>
