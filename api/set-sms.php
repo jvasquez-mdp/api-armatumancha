@@ -9,12 +9,14 @@ include_once API_PATH . '/api/core/NotificationsModel.php';
 
 final class ClaroSetSms{
     function run(){
+        /*
         $_POST = array(
                     'data' => array(
                         'notification' => 'codigo-seguridad',
                         'users' => array(6)
                     )
                 );
+        */
         if(!empty($_POST['data'])){
             $post = $_POST['data'];
 
