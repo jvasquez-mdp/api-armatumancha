@@ -45,7 +45,7 @@ final class ClaroCallback{
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $postData = json_decode(file_get_contents('php://input'), true);
 
-            $data['supplier_cod'] = @$postData['id'];
+            $data['supplier_code'] = @$postData['id'];
             $data['notification_id'] = @$postData['correlationId'];
             $data['carrier_id'] = @$postData['carrierId'];
             $data['carrier_name'] = @$postData['carrierName'];
